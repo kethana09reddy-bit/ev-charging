@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Volt路 – EV Charging Network</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="index.html">Volt<span>路</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="map.html">Map</a></li>
+    <li><a href="station.html">Stations</a></li>
+    <li><a href="dashboard.html">Dashboard</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="dashboard.html" class="nav-cta">My Account</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">⚡ India's Smart EV Network</div>
+  <h1 class="fade-up">Charge Smarter,<br>Drive <span class="accent">Further</span></h1>
+  <p class="fade-up">Find charging stations, plan routes and estimate battery usage — all in one place. Designed for every EV driver.</p>
+  <div class="search-box fade-up">
+    <input type="text" id="searchInput" placeholder="🔍 Search city or station..." oninput="searchStations()" />
+    <select>
+      <option>All Charger Types</option>
+      <option>DC Fast (50kW+)</option>
+      <option>AC Standard</option>
+      <option>Ultra-Fast (150kW+)</option>
+    </select>
+    <button class="btn btn-primary" onclick="window.location='map.html'">Find Stations →</button>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat"><div class="stat-num">500+</div><div class="stat-label">Charging Stations</div></div>
+  <div class="stat"><div class="stat-num">50K+</div><div class="stat-label">Active Users</div></div>
+  <div class="stat"><div class="stat-num">99.2%</div><div class="stat-label">Uptime</div></div>
+  <div class="stat"><div class="stat-num">24/7</div><div class="stat-label">Support</div></div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section class="section" style="background:white">
+  <div class="section-header">
+    <h2>How It Works</h2>
+    <p>Plan your EV journey in three simple steps</p>
+    <div class="accent-line"></div>
+  </div>
+  <div class="cards-grid">
+    <div class="card fade-up">
+      <div class="card-icon">🚗</div>
+      <h3>Enter Your Vehicle</h3>
+      <p>Tell us your EV model, battery capacity and current charge level so we can give you accurate estimates.</p>
+    </div>
+    <div class="card fade-up">
+      <div class="card-icon">🗺️</div>
+      <h3>Plan Your Route</h3>
+      <p>Enter your destination and we'll map out charging stops along the way so you never get stranded.</p>
+    </div>
+    <div class="card fade-up">
+      <div class="card-icon">⚡</div>
+      <h3>Charge & Go</h3>
+      <p>Real-time port availability, estimated charging time, and nearby facilities at every stop.</p>
+    </div>
+  </div>
+</section>
+
+<!-- NEAREST STATIONS PREVIEW -->
+<section class="section">
+  <div class="section-header">
+    <h2>Nearby Stations</h2>
+    <p>Live availability near Chennai</p>
+    <div class="accent-line"></div>
+  </div>
+  <div class="cards-grid" id="stationCards"></div>
+  <div style="text-align:center;margin-top:2rem">
+    <a href="station.html" class="btn btn-secondary">View All Stations →</a>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="section" style="background:white">
+  <div class="section-header">
+    <h2>Everything You Need</h2>
+    <p>Built for real-world EV drivers</p>
+    <div class="accent-line"></div>
+  </div>
+  <div class="cards-grid">
+    <div class="card fade-up"><div class="card-icon">🔋</div><h3>Battery Estimator</h3><p>Know exactly how much charge you need and how long it will take at any station.</p></div>
+    <div class="card fade-up"><div class="card-icon">📍</div><h3>Real-Time Availability</h3><p>See which ports are free, busy, or reserved before you leave home.</p></div>
+    <div class="card fade-up"><div class="card-icon">🍽️</div><h3>Nearby Facilities</h3><p>Restaurants, cafes, and rest areas near every charging station to make your wait comfortable.</p></div>
+    <div class="card fade-up"><div class="card-icon">💰</div><h3>Cost Calculator</h3><p>Estimate your charging cost in advance based on your vehicle and the station's tariff.</p></div>
+  </div>
+</section>
+
+<!-- PORT LEGEND -->
+<section class="section" style="padding-top:1rem;padding-bottom:3rem">
+  <div style="max-width:400px;margin:0 auto;background:white;border-radius:16px;padding:1.5rem;box-shadow:0 4px 24px rgba(0,0,0,0.08)">
+    <div style="font-family:'Syne',sans-serif;font-weight:700;margin-bottom:1rem;font-size:0.95rem">Port Status Legend</div>
+    <div style="display:flex;gap:1.5rem;flex-wrap:wrap">
+      <div style="display:flex;align-items:center;gap:0.5rem;font-size:0.85rem"><div class="port-dot available"></div> Available</div>
+      <div style="display:flex;align-items:center;gap:0.5rem;font-size:0.85rem"><div class="port-dot busy"></div> In Use</div>
+      <div style="display:flex;align-items:center;gap:0.5rem;font-size:0.85rem"><div class="port-dot reserved"></div> Reserved</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 <span>Volt路</span> · Built for EV drivers across India · <a href="contact.html" style="color:#2ecc71">Contact Us</a></p>
+</footer>
+
+<div class="notif" id="notif"></div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="js/main.js"></script>
+</body>
+</html>

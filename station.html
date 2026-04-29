@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stations – Volt路</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="index.html">Volt<span>路</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="map.html">Map</a></li>
+    <li><a href="station.html" class="active">Stations</a></li>
+    <li><a href="dashboard.html">Dashboard</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="dashboard.html" class="nav-cta">My Account</a></li>
+  </ul>
+</nav>
+
+<div class="page-header">
+  <h1>⚡ Charging Stations</h1>
+  <p>All stations near you — real-time availability</p>
+</div>
+
+<section class="section">
+  <!-- Filter Bar -->
+  <div style="max-width:1100px;margin:0 auto 2rem;background:white;border-radius:16px;padding:1.25rem 1.5rem;box-shadow:0 4px 24px rgba(0,0,0,0.06);display:flex;gap:1rem;flex-wrap:wrap;align-items:center">
+    <input type="text" id="searchInput" placeholder="🔍 Search station name..." oninput="searchStations()"
+      style="flex:1;min-width:180px;padding:0.65rem 1rem;border-radius:10px;border:1.5px solid #e5e7eb;font-family:'DM Sans',sans-serif;font-size:0.9rem;outline:none" />
+    <select onchange="filterByStatus(this.value)"
+      style="padding:0.65rem 1rem;border-radius:10px;border:1.5px solid #e5e7eb;font-family:'DM Sans',sans-serif;font-size:0.9rem;outline:none;background:#fafafa">
+      <option value="">All Status</option>
+      <option value="available">Available</option>
+      <option value="busy">Busy</option>
+      <option value="reserved">Reserved</option>
+    </select>
+    <select onchange="filterBySpeed(this.value)"
+      style="padding:0.65rem 1rem;border-radius:10px;border:1.5px solid #e5e7eb;font-family:'DM Sans',sans-serif;font-size:0.9rem;outline:none;background:#fafafa">
+      <option value="">All Speeds</option>
+      <option value="DC Fast">DC Fast</option>
+      <option value="AC">AC</option>
+    </select>
+    <span style="font-size:0.85rem;color:#6b7280" id="countLabel">5 stations found</span>
+  </div>
+
+  <!-- Station Cards -->
+  <div class="cards-grid" id="stationCards" style="max-width:1100px;margin:0 auto"></div>
+</section>
+
+<!-- Detail Modal (shown on click) -->
+<div id="detailModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:200;align-items:center;justify-content:center">
+  <div style="background:white;border-radius:20px;padding:2rem;max-width:480px;width:90%;position:relative;max-height:90vh;overflow-y:auto" id="modalContent"></div>
+</div>
+
+<footer>
+  <p>© 2025 <span>Volt路</span> · Built for EV drivers across India</p>
+</footer>
+
+<div class="notif" id="notif"></div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="js/main.js"></script>
+<script>
+function filterByStatus(val) {
+  const filtered = val ? stations.filter(s => s.status === val) : stations;
+  renderStations(filtered);
+  document.getElementById('countLabel').textContent = filtered.length + ' stations found';
+}
+function filterBySpeed(val) {
+  const filtered = val ? stations.filter(s => s.speed.includes(val)) : stations;
+  renderStations(filtered);
+  document.getElementById('countLabel').textContent = filtered.length + ' stations found';
+}
+</script>
+</body>
+</html>

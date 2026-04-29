@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard – Volt路</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="index.html">Volt<span>路</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="map.html">Map</a></li>
+    <li><a href="station.html">Stations</a></li>
+    <li><a href="dashboard.html" class="active">Dashboard</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="dashboard.html" class="nav-cta">My Account</a></li>
+  </ul>
+</nav>
+
+<div class="page-header">
+  <h1>👤 My Dashboard</h1>
+  <p>Your EV journey at a glance</p>
+</div>
+
+<section class="section">
+  <div class="dashboard-grid">
+
+    <!-- SIDEBAR -->
+    <div class="dash-sidebar">
+      <div class="avatar">AK</div>
+      <div class="dash-name">Arjun Kumar</div>
+      <div class="dash-email">arjun.kumar@email.com</div>
+      <ul class="dash-nav">
+        <li><a href="#" class="active">📊 Overview</a></li>
+        <li><a href="#">🚗 My Vehicle</a></li>
+        <li><a href="#">📋 Trip History</a></li>
+        <li><a href="#">⭐ Saved Stations</a></li>
+        <li><a href="#">⚙️ Settings</a></li>
+      </ul>
+      <hr style="margin:1.25rem 0;border:none;border-top:1px solid #f0f0f0" />
+      <!-- Vehicle Card -->
+      <div style="background:var(--green-light);border-radius:12px;padding:1rem">
+        <div style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.5px;color:#6b7280;margin-bottom:0.5rem">My Vehicle</div>
+        <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:0.95rem">Tata Nexon EV</div>
+        <div style="font-size:0.85rem;color:#6b7280;margin:0.25rem 0">40.5 kWh · Range 312 km</div>
+        <!-- Battery Bar -->
+        <div style="margin-top:0.75rem">
+          <div style="display:flex;justify-content:space-between;font-size:0.8rem;margin-bottom:4px">
+            <span>Battery</span><span style="color:var(--green-dark);font-weight:600">78%</span>
+          </div>
+          <div class="charge-bar-bg"><div class="charge-bar-fill" style="width:78%"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN -->
+    <div class="dash-main">
+
+      <!-- Metrics -->
+      <div class="metric-row">
+        <div class="metric"><div class="metric-val">4</div><div class="metric-label">Trips This Month</div></div>
+        <div class="metric"><div class="metric-val">66 km</div><div class="metric-label">Total Distance</div></div>
+        <div class="metric"><div class="metric-val">17.1 kWh</div><div class="metric-label">Energy Used</div></div>
+        <div class="metric"><div class="metric-val">₹205</div><div class="metric-label">Total Spent</div></div>
+      </div>
+
+      <!-- Trips Table -->
+      <div class="trips-table">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.25rem">
+          <h3 style="font-family:'Syne',sans-serif;font-weight:700;margin:0">Recent Trips</h3>
+          <button class="btn btn-secondary" style="padding:0.4rem 0.9rem;font-size:0.85rem">Export CSV</button>
+        </div>
+        <div style="overflow-x:auto">
+          <table>
+            <thead>
+              <tr>
+                <th>Date</th><th>From</th><th>To</th><th>Distance</th><th>Energy</th><th>Cost</th><th>Station Used</th>
+              </tr>
+            </thead>
+            <tbody id="tripsBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Saved Stations -->
+      <div class="trips-table">
+        <h3 style="font-family:'Syne',sans-serif;font-weight:700;margin-bottom:1.25rem">Saved Stations</h3>
+        <div style="display:flex;flex-direction:column;gap:0.75rem">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:0.75rem;background:#fafafa;border-radius:10px">
+            <div>
+              <div style="font-weight:600;font-size:0.9rem">EcoCharge Hub – Anna Nagar</div>
+              <div style="font-size:0.8rem;color:#6b7280">150 kW DC · ₹12/kWh</div>
+            </div>
+            <span class="badge badge-green">Available</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:0.75rem;background:#fafafa;border-radius:10px">
+            <div>
+              <div style="font-weight:600;font-size:0.9rem">Rapid Charge – OMR</div>
+              <div style="font-size:0.8rem;color:#6b7280">250 kW DC · ₹15/kWh</div>
+            </div>
+            <span class="badge badge-green">Available</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 <span>Volt路</span> · Built for EV drivers across India</p>
+</footer>
+
+<div class="notif" id="notif"></div>
+<script src="js/main.js"></script>
+</body>
+</html>

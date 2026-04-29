@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact – Volt路</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="index.html">Volt<span>路</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="map.html">Map</a></li>
+    <li><a href="station.html">Stations</a></li>
+    <li><a href="dashboard.html">Dashboard</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+    <li><a href="dashboard.html" class="nav-cta">My Account</a></li>
+  </ul>
+</nav>
+
+<div class="page-header">
+  <h1>📬 Get In Touch</h1>
+  <p>We'd love to hear from you</p>
+</div>
+
+<section class="section">
+  <div class="contact-grid">
+
+    <!-- INFO -->
+    <div class="contact-info">
+      <h3>Contact Information</h3>
+      <div class="contact-item">
+        <div class="contact-item-icon">📧</div>
+        <div><h4>Email</h4><p>hello@voltroute.in</p></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon">📞</div>
+        <div><h4>Phone</h4><p>+91 98765 43210</p></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon">📍</div>
+        <div><h4>Address</h4><p>Anna Nagar, Chennai – 600040, Tamil Nadu</p></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon">🕘</div>
+        <div><h4>Support Hours</h4><p>Mon – Sat, 9 AM to 6 PM IST</p></div>
+      </div>
+
+      <!-- FAQ -->
+      <div style="margin-top:2rem">
+        <h3 style="font-family:'Syne',sans-serif;font-weight:700;margin-bottom:1rem">Quick FAQ</h3>
+        <div style="display:flex;flex-direction:column;gap:0.75rem">
+          <details style="background:white;border-radius:10px;padding:1rem;box-shadow:0 2px 8px rgba(0,0,0,0.06)">
+            <summary style="font-weight:600;cursor:pointer;font-size:0.9rem">Is Volt路 free to use?</summary>
+            <p style="margin-top:0.5rem;font-size:0.85rem;color:#6b7280">Yes! All core features including map, route planner, and station finder are 100% free.</p>
+          </details>
+          <details style="background:white;border-radius:10px;padding:1rem;box-shadow:0 2px 8px rgba(0,0,0,0.06)">
+            <summary style="font-weight:600;cursor:pointer;font-size:0.9rem">How accurate is the availability data?</summary>
+            <p style="margin-top:0.5rem;font-size:0.85rem;color:#6b7280">We partner directly with charging networks to get near real-time status updates.</p>
+          </details>
+          <details style="background:white;border-radius:10px;padding:1rem;box-shadow:0 2px 8px rgba(0,0,0,0.06)">
+            <summary style="font-weight:600;cursor:pointer;font-size:0.9rem">Can I add a charging station?</summary>
+            <p style="margin-top:0.5rem;font-size:0.85rem;color:#6b7280">Yes! Use the form on this page to report a station or request a new listing.</p>
+          </details>
+        </div>
+      </div>
+    </div>
+
+    <!-- FORM -->
+    <div class="contact-form">
+      <h3>Send Us a Message</h3>
+      <form id="contactForm" onsubmit="submitContact(event)">
+        <div class="form-group">
+          <label>Your Name</label>
+          <input type="text" placeholder="Arjun Kumar" required />
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" placeholder="arjun@email.com" required />
+        </div>
+        <div class="form-group">
+          <label>Subject</label>
+          <select>
+            <option>General Inquiry</option>
+            <option>Report a Station Issue</option>
+            <option>Add a New Station</option>
+            <option>Partnership</option>
+            <option>Technical Support</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea placeholder="Tell us how we can help..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Send Message →</button>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 <span>Volt路</span> · Built for EV drivers across India</p>
+</footer>
+
+<div class="notif" id="notif"></div>
+<script src="js/main.js"></script>
+</body>
+</html>
